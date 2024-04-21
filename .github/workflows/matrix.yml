@@ -6,7 +6,13 @@ jobs:
     strategy:
      matrix:
       node-version: [16, 18, 20]
-      operating-system: [ubuntu-latest, windows-latest, macos-latest]
+      operating-system: [ubuntu-latest, macos-latest]
+      include:
+       - node-version: 18
+         operating-system: ubuntu-latest
+      exclude:
+       - node-version: 16
+         operating-system: macos-latest
     runs-on: ${{ matrix.operating-system }}
     steps:
       - name: Get code
