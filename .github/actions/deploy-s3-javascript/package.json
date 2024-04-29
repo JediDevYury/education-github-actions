@@ -2,7 +2,6 @@
   "name": "deploy-s3-javascript",
   "version": "1.0.0",
   "description": "custom action to deploy javascript files to s3",
-  "type": "module",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
