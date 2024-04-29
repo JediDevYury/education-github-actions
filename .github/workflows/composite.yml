@@ -24,12 +24,12 @@ jobs:
       - name: Get code
         uses: actions/checkout@v3
       - name: Cache and Install dependencies
-        id: cache-deps-test
+        id: test
         uses: ./.github/actions/cached-deps
         with:
           caching: 'true'
       - name: Output information
-        run: echo "Cache used? ${{ steps.cache-deps-test.outputs.used-cache }}"
+        run: echo "Cache used? ${{ steps.test.outputs.used-cache }}"
       - name: Test code
         id: run-tests
         run: npm run test
@@ -69,3 +69,8 @@ jobs:
         run: ls
       - name: Deploy site
         run: echo "Deploying..."
+  information:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run custom action
+        uses: ./.github/actions/deploy-s3-javascript
